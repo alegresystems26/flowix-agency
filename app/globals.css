@@ -36,6 +36,20 @@ body { background: #000; color: #fff; }
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
+@keyframes orb-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orb-rotate-rev {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ─── ORB RINGS (usado en HeroFallback) ──────────────────────── */
+.orb-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(0,204,106,0.13); }
+.orb-ring-1 { animation: orb-rotate     12s linear infinite; }
+.orb-ring-2 { animation: orb-rotate-rev 18s linear infinite; }
+.orb-ring-3 { animation: orb-rotate     28s linear infinite; }
 
 /* ─── BASE ANIMATION CLASSES ─────────────────────────────────── */
 .float   { animation: float 6s ease-in-out infinite; }

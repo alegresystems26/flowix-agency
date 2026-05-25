@@ -1,4 +1,4 @@
-import SplineHero from "./components/SplineHero";
+import SplineWithFallback from "./components/SplineWithFallback";
 import ScrollReveal from "./components/ScrollReveal";
 
 const G = "#00CC6A";
@@ -107,9 +107,9 @@ export default function FlowixAgency() {
       {/* ── HERO — pantalla completa con Spline interactivo ───── */}
       <section style={{ position: "relative", height: "calc(100vh - 68px)", overflow: "hidden" }}>
 
-        {/* Spline ocupa todo el hero — interactivo con el cursor */}
+        {/* Spline (solo desktop con WebGL) o fallback CSS */}
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: -100 }}>
-          <SplineHero />
+          <SplineWithFallback />
         </div>
 
         {/* Gradiente izquierdo para legibilidad del texto */}
