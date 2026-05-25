@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Spline from "@splinetool/react-spline/next";
+import dynamic from "next/dynamic";
+
+const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
 
 const SCENE      = "https://prod.spline.design/TdNd7eKsLbnB0cRx/scene.splinecode";
 const MIN_WIDTH  = 900;   // px — por debajo = mobile, no carga
