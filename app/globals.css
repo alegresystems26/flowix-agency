@@ -121,6 +121,14 @@ body { background: #000; color: #fff; }
 .footer-link { transition: color 0.15s ease; }
 .footer-link:hover { color: #fff !important; }
 
+/* ─── HERO SPLINE / FALLBACK ──────────────────────────────────── */
+.hero-spline  { display: block; }
+.hero-fallback { display: none; }
+@media (max-width: 899px) {
+  .hero-spline  { display: none; }
+  .hero-fallback { display: block; }
+}
+
 /* ─── RESPONSIVE — 900px ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .products-grid { grid-template-columns: 1fr !important; }

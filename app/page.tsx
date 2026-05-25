@@ -1,4 +1,4 @@
-import SplineWithFallback from "./components/SplineWithFallback";
+import SplineHero from "./components/SplineHero";
 import ScrollReveal from "./components/ScrollReveal";
 
 const G = "#00CC6A";
@@ -107,9 +107,21 @@ export default function FlowixAgency() {
       {/* ── HERO — pantalla completa con Spline interactivo ───── */}
       <section style={{ position: "relative", height: "calc(100vh - 68px)", overflow: "hidden" }}>
 
-        {/* Spline (solo desktop con WebGL) o fallback CSS */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: -100 }}>
-          <SplineWithFallback />
+        {/* Spline — visible solo en desktop ≥900px via CSS */}
+        <div className="hero-spline" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: -100 }}>
+          <SplineHero />
+        </div>
+
+        {/* Fallback — visible solo en mobile <900px via CSS */}
+        <div className="hero-fallback" aria-hidden style={{ position: "absolute", inset: 0 }}>
+          {/* Glow central */}
+          <div style={{ position: "absolute", top: "50%", right: -60, transform: "translateY(-50%)", width: 640, height: 640, background: "radial-gradient(circle, rgba(0,204,106,0.13) 0%, transparent 60%)", borderRadius: "50%", pointerEvents: "none" }} />
+          <div className="orb-ring orb-ring-1" style={{ top: "50%", right: "4%", width: 420, height: 420, marginTop: -210, marginRight: -80 }} />
+          <div className="orb-ring orb-ring-2" style={{ top: "50%", right: "4%", width: 280, height: 280, marginTop: -140, marginRight: -20 }} />
+          <div className="orb-ring orb-ring-3" style={{ top: "50%", right: "4%", width: 160, height: 160, marginTop: -80, marginRight: 40, borderColor: "rgba(0,204,106,0.2)" }} />
+          <div style={{ position: "absolute", top: "50%", right: "calc(4% - 40px)", transform: "translate(50%, -50%)", width: 48, height: 48, background: "radial-gradient(circle, rgba(0,204,106,0.5) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+          <div className="float" style={{ position: "absolute", top: "18%", right: "30%", width: 90, height: 90, background: "radial-gradient(circle, rgba(0,204,106,0.09) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none", animationDelay: "-1.5s" }} />
+          <div className="float" style={{ position: "absolute", bottom: "20%", right: "22%", width: 60, height: 60, background: "radial-gradient(circle, rgba(0,204,106,0.07) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none", animationDelay: "-3.5s" }} />
         </div>
 
         {/* Gradiente izquierdo para legibilidad del texto */}
