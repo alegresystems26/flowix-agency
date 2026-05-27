@@ -8,9 +8,9 @@ const SALON_URL = "https://flowix-landing-six.vercel.app";
 
 const differentiators = [
   {
-    title: "Desarrollo veloz",
-    desc: "De la idea al producto en semanas, no meses. Metodología ágil centrada en resultados.",
-    icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>),
+    title: "Activación en 24hs",
+    desc: "Tu sistema configurado y funcionando en un día. Sin meses de implementación ni consultores externos.",
+    icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>),
   },
   {
     title: "Especialización vertical",
@@ -19,7 +19,7 @@ const differentiators = [
   },
   {
     title: "Mejora continua",
-    desc: "El software evoluciona junto con tu negocio. Actualizaciones basadas en feedback real.",
+    desc: "El software evoluciona junto con tu negocio. Actualizaciones basadas en feedback real de cada cliente.",
     icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>),
   },
   {
@@ -28,9 +28,9 @@ const differentiators = [
     icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>),
   },
   {
-    title: "100% en la nube",
-    desc: "Tus datos siempre disponibles y seguros. Accedé desde cualquier dispositivo, en cualquier momento.",
-    icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>),
+    title: "Soporte directo",
+    desc: "Hablás con quien construyó el sistema. Sin call centers ni tickets. Respuesta real por WhatsApp.",
+    icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>),
   },
   {
     title: "Automatizaciones",
@@ -117,7 +117,7 @@ export default function FlowixAgency() {
               lineHeight: 1.0, letterSpacing: "-3.5px",
               margin: "0 0 28px", animationDelay: "0.1s",
             }}>
-              Construimos<br />el software de<br /><span className="shimmer-green">tu negocio.</span>
+              El sistema que<br />tu negocio<br /><span className="shimmer-green">necesitaba.</span>
             </h1>
 
             <p className="anim-up" style={{
@@ -163,7 +163,7 @@ export default function FlowixAgency() {
                   ))}
                 </div>
                 <div style={{ flex: 1, textAlign: "center", fontSize: 10, color: "#3a3a3a", fontWeight: 600, letterSpacing: "0.04em" }}>
-                  BarberSGI · Dashboard
+                  Flowix Book · Dashboard
                 </div>
                 <div className="dot-blink" style={{ width: 7, height: 7, borderRadius: "50%", background: G }} />
               </div>
@@ -418,42 +418,54 @@ export default function FlowixAgency() {
             </a>
           </div>
 
-          {/* Card 2 — próximamente */}
+          {/* Card 2 — roadmap */}
           <div className="product-card sr" style={{
             background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.07)",
             borderRadius: 24, padding: 40, display: "flex", flexDirection: "column" as const,
             justifyContent: "space-between", transitionDelay: "0.1s",
           }}>
             <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 20, padding: "5px 14px", marginBottom: 28, fontSize: 11, fontWeight: 700, color: "#555", letterSpacing: "0.04em" }}>
-                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#555", display: "inline-block" }} />
-                Próximamente
+              {/* Flowix Salud */}
+              <div style={{ marginBottom: 32 }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.18)", borderRadius: 20, padding: "5px 14px", marginBottom: 18, fontSize: 11, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.04em" }}>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#60a5fa", display: "inline-block" }} />
+                  En desarrollo
+                </div>
+                <h3 style={{ fontSize: "clamp(20px, 2.2vw, 26px)", fontWeight: 800, letterSpacing: "-0.8px", marginBottom: 10, lineHeight: 1.1 }}>
+                  Flowix Salud
+                </h3>
+                <p style={{ fontSize: 14, color: "#555", lineHeight: 1.7, marginBottom: 14 }}>
+                  Sistema de gestión para centros de salud y bienestar. Con historia clínica, notas por sesión y planes de tratamiento.
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {["Kinesiología", "Quiropraxia", "Psicología", "Nutrición", "Estética médica"].map(n => (
+                    <span key={n} style={{ background: "rgba(96,165,250,0.06)", border: "1px solid rgba(96,165,250,0.12)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#4a7fa5" }}>{n}</span>
+                  ))}
+                </div>
               </div>
 
-              <h3 style={{ fontSize: "clamp(22px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1, color: "#555" }}>
-                Más verticales<br />en camino
-              </h3>
-              <p style={{ fontSize: 15, color: "#3a3a3a", lineHeight: 1.75, marginBottom: 36 }}>
-                Estamos desarrollando soluciones para nuevos rubros. Si tenés un negocio de servicios y necesitás un sistema a medida, podemos construirlo juntos.
-              </p>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 36 }}>
-                {["Próximo vertical", "En desarrollo", "Nuevo rubro", "Por definir"].map((l, i) => (
-                  <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 10, padding: "14px 16px" }}>
-                    <div style={{ width: 32, height: 3, background: "rgba(255,255,255,0.06)", borderRadius: 2, marginBottom: 8 }} />
-                    <p style={{ margin: 0, fontSize: 11, color: "#333" }}>{l}</p>
-                  </div>
-                ))}
+              {/* Flowix Deporte */}
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 24 }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(167,139,250,0.06)", border: "1px solid rgba(167,139,250,0.14)", borderRadius: 20, padding: "5px 14px", marginBottom: 18, fontSize: 11, fontWeight: 700, color: "#a78bfa", letterSpacing: "0.04em" }}>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#a78bfa", display: "inline-block" }} />
+                  Roadmap
+                </div>
+                <h3 style={{ fontSize: "clamp(18px, 2vw, 22px)", fontWeight: 800, letterSpacing: "-0.6px", marginBottom: 8, lineHeight: 1.1, color: "#888" }}>
+                  Flowix Deporte
+                </h3>
+                <p style={{ fontSize: 13, color: "#3a3a3a", lineHeight: 1.6, margin: 0 }}>
+                  Gimnasios, academias deportivas, pilates, yoga y más.
+                </p>
               </div>
             </div>
 
             <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
+              display: "inline-flex", alignItems: "center", gap: 8, marginTop: 32,
               background: "rgba(255,255,255,0.05)", color: "#777", fontWeight: 600, fontSize: 14,
               textDecoration: "none", padding: "13px 28px", borderRadius: 10,
               border: "1px solid rgba(255,255,255,0.09)",
             }}>
-              Consultar →
+              Quiero saber más →
             </a>
           </div>
 
@@ -528,6 +540,118 @@ export default function FlowixAgency() {
                 <p style={{ fontSize: 14, color: "#6b6b6b", lineHeight: 1.7 }}>{d.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRECIOS ──────────────────────────────────────────── */}
+      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="sr" style={{ marginBottom: 64, textAlign: "center" as const }}>
+            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Planes</p>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, marginBottom: 14 }}>
+              Precio fijo.<br />Sin sorpresas.
+            </h2>
+            <p style={{ color: "#6b6b6b", fontSize: 16, maxWidth: 400, margin: "0 auto" }}>
+              Suscripción mensual. Sin contratos de permanencia. Cancelás cuando querés.
+            </p>
+          </div>
+
+          <div className="steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            {/* Base */}
+            <div className="sr diff-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 22, padding: 32 }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#555", textTransform: "uppercase" as const, letterSpacing: "0.1em", marginBottom: 12 }}>Base</p>
+              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 6 }}>
+                <span style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-2px" }}>$25.000</span>
+              </div>
+              <p style={{ fontSize: 13, color: "#555", marginBottom: 28 }}>por mes · por local</p>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 24, display: "flex", flexDirection: "column" as const, gap: 12, marginBottom: 32 }}>
+                {["Agenda de turnos", "Caja y pagos", "Gestión de clientes", "Reportes básicos", "Hasta 2 profesionales", "Soporte por WhatsApp"].map(f => (
+                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style={{ fontSize: 13, color: "#888" }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center" as const, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#aaa", fontWeight: 600, fontSize: 14, textDecoration: "none", padding: "13px 24px", borderRadius: 10 }}>
+                Empezar →
+              </a>
+            </div>
+
+            {/* Pro — destacado */}
+            <div className="sr" style={{ background: "rgba(0,204,106,0.05)", border: "1px solid rgba(0,204,106,0.2)", borderRadius: 22, padding: 32, position: "relative", transitionDelay: "0.08s" }}>
+              <div style={{ position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)", background: G, color: "#000", fontSize: 10, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase" as const, padding: "4px 14px", borderRadius: 20 }}>Más elegido</div>
+              <p style={{ fontSize: 12, fontWeight: 700, color: G, textTransform: "uppercase" as const, letterSpacing: "0.1em", marginBottom: 12 }}>Pro</p>
+              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 6 }}>
+                <span style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-2px", color: G }}>$45.000</span>
+              </div>
+              <p style={{ fontSize: 13, color: "#555", marginBottom: 28 }}>por mes · por local</p>
+              <div style={{ borderTop: "1px solid rgba(0,204,106,0.1)", paddingTop: 24, display: "flex", flexDirection: "column" as const, gap: 12, marginBottom: 32 }}>
+                {["Todo el plan Base", "Inventario de productos", "Control de gastos del local", "Reportes avanzados", "Hasta 5 profesionales", "Soporte prioritario"].map(f => (
+                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style={{ fontSize: 13, color: "#aaa" }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center" as const, background: G, color: "#000", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "13px 24px", borderRadius: 10 }}>
+                Empezar →
+              </a>
+            </div>
+
+            {/* Elite */}
+            <div className="sr diff-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 22, padding: 32, transitionDelay: "0.16s" }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#555", textTransform: "uppercase" as const, letterSpacing: "0.1em", marginBottom: 12 }}>Elite</p>
+              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 6 }}>
+                <span style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-2px" }}>$85.000</span>
+              </div>
+              <p style={{ fontSize: 13, color: "#555", marginBottom: 28 }}>por mes · por local</p>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 24, display: "flex", flexDirection: "column" as const, gap: 12, marginBottom: 32 }}>
+                {["Todo el plan Pro", "Profesionales ilimitados", "Automatizaciones con n8n", "Web del negocio incluida", "Acceso anticipado a novedades", "Soporte directo con el equipo"].map(f => (
+                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style={{ fontSize: 13, color: "#888" }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center" as const, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#aaa", fontWeight: 600, fontSize: 14, textDecoration: "none", padding: "13px 24px", borderRadius: 10 }}>
+                Contactar →
+              </a>
+            </div>
+          </div>
+
+          <p className="sr" style={{ textAlign: "center" as const, fontSize: 13, color: "#333", marginTop: 24 }}>
+            Precios en pesos argentinos · IVA no incluido · Los mismos planes aplican a todos los sistemas Flowix
+          </p>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIO ───────────────────────────────────────── */}
+      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <div className="sr" style={{
+            background: "rgba(0,204,106,0.03)", border: "1px solid rgba(0,204,106,0.1)",
+            borderRadius: 24, padding: "48px 56px", position: "relative", overflow: "hidden",
+          }}>
+            <div aria-hidden style={{ position: "absolute", top: -40, right: -40, width: 200, height: 200, background: "radial-gradient(circle, rgba(0,204,106,0.07) 0%, transparent 65%)", pointerEvents: "none" }} />
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(0,204,106,0.25)" style={{ marginBottom: 24 }}><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+            <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "#d4d4d8", lineHeight: 1.75, fontStyle: "italic", marginBottom: 32, position: "relative" }}>
+              "Fácil de usar y muy práctico. Nos permite gestionar los turnos de forma fluida, tener todos los datos bien organizados y ver el rendimiento real del negocio de un vistazo. Es exactamente lo que necesitábamos."
+            </p>
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(0,204,106,0.15)", border: "1px solid rgba(0,204,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, fontWeight: 800, color: G }}>
+                F
+              </div>
+              <div>
+                <p style={{ margin: 0, fontWeight: 700, fontSize: 15 }}>Fernando</p>
+                <p style={{ margin: 0, fontSize: 13, color: "#555" }}>Fundador · Flow K'Pital</p>
+              </div>
+              <div style={{ marginLeft: "auto", display: "flex", gap: 3 }}>
+                {[1,2,3,4,5].map(s => (
+                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={G}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
