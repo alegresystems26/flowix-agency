@@ -1,6 +1,27 @@
 import ScrollReveal from "./components/ScrollReveal";
 
 const G = "#00CC6A";
+
+type FVal = boolean | string;
+const tableFeatures: { name: string; base: FVal; pro: FVal; elite: FVal }[] = [
+  { name: "Gestión de agenda / turnos",  base: true,  pro: true,  elite: true  },
+  { name: "Base de clientes / pacientes",base: true,  pro: true,  elite: true  },
+  { name: "Caja y cobros",               base: true,  pro: true,  elite: true  },
+  { name: "Reportes básicos",            base: true,  pro: true,  elite: true  },
+  { name: "Módulos avanzados",           base: false, pro: true,  elite: true  },
+  { name: "Reportes avanzados",          base: false, pro: true,  elite: true  },
+  { name: "Profesionales / usuarios",    base: "2",   pro: "5",   elite: "∞"   },
+  { name: "Soporte prioritario",         base: false, pro: false, elite: true  },
+  { name: "Automatizaciones",            base: false, pro: false, elite: true  },
+  { name: "Web del negocio incluida",    base: false, pro: false, elite: true  },
+  { name: "Acceso anticipado a novedades",base: false,pro: false, elite: true  },
+];
+
+function PlanCell({ val, color }: { val: FVal; color: string }) {
+  if (typeof val === "string") return <span style={{ fontWeight: 700, fontSize: 16, color }}>{val}</span>;
+  if (val) return <span style={{ color, fontWeight: 700, fontSize: 18 }}>✓</span>;
+  return <span style={{ color: "#3f3f46", fontSize: 18 }}>—</span>;
+}
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
 const WA       = `https://wa.me/5491126730927?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20Flowix.`;
@@ -552,76 +573,87 @@ export default function FlowixAgency() {
             <h2 style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, marginBottom: 14 }}>
               Precio fijo.<br />Sin sorpresas.
             </h2>
-            <p style={{ color: "#6b6b6b", fontSize: 16, maxWidth: 400, margin: "0 auto" }}>
-              Suscripción mensual. Sin contratos de permanencia. Cancelás cuando querés.
+            <p style={{ color: "#6b6b6b", fontSize: 16, maxWidth: 460, margin: "0 auto" }}>
+              Suscripción mensual. Sin contratos de permanencia. Los mismos planes para todos los sistemas Flowix.
             </p>
           </div>
 
-          <div className="steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-            {/* Base */}
-            <div className="sr diff-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 22, padding: 32 }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#555", textTransform: "uppercase" as const, letterSpacing: "0.1em", marginBottom: 12 }}>Base</p>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 6 }}>
-                <span style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-2px" }}>$25.000</span>
-              </div>
-              <p style={{ fontSize: 13, color: "#555", marginBottom: 28 }}>por mes · por local</p>
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 24, display: "flex", flexDirection: "column" as const, gap: 12, marginBottom: 32 }}>
-                {["Agenda de turnos", "Caja y pagos", "Gestión de clientes", "Reportes básicos", "Hasta 2 profesionales", "Soporte por WhatsApp"].map(f => (
-                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span style={{ fontSize: 13, color: "#888" }}>{f}</span>
-                  </div>
+          <div className="sr" style={{ overflowX: "auto" as const, borderRadius: 20, border: "1px solid rgba(255,255,255,0.08)" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" as const, minWidth: 680, tableLayout: "fixed" as const }}>
+              <colgroup>
+                <col style={{ width: "28%" }} />
+                <col style={{ width: "24%" }} />
+                <col style={{ width: "24%" }} />
+                <col style={{ width: "24%" }} />
+              </colgroup>
+              <thead>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <th style={{ padding: "36px 32px", textAlign: "left" as const, fontWeight: "normal" as const }}>
+                    <span style={{ fontSize: 13, color: "#333", fontWeight: 500 }}>Incluye</span>
+                  </th>
+                  {/* BASE */}
+                  <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(255,255,255,0.015)", fontWeight: "normal" as const }}>
+                    <p style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 600, color: "#888" }}>Base</p>
+                    <p style={{ margin: "0 0 22px" }}>
+                      <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px" }}>$25.000</span>
+                      <span style={{ fontSize: 13, color: "#444" }}>/mes</span>
+                    </p>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "rgba(255,255,255,0.06)", color: "#888", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 16px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.08)" }}>Empezar</a>
+                  </th>
+                  {/* PRO */}
+                  <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(0,204,106,0.05)", fontWeight: "normal" as const, borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}`, borderTop: `2px solid ${G}`, position: "relative" as const }}>
+                    <div style={{ position: "absolute" as const, top: -1, left: "50%", transform: "translateX(-50%)", background: G, color: "#000", fontSize: 10, fontWeight: 800, padding: "4px 14px", borderRadius: "0 0 10px 10px", letterSpacing: "0.07em", whiteSpace: "nowrap" as const }}>MÁS ELEGIDO</div>
+                    <p style={{ margin: "14px 0 8px", fontSize: 16, fontWeight: 700, color: G }}>Pro</p>
+                    <p style={{ margin: "0 0 22px" }}>
+                      <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px", color: G }}>$45.000</span>
+                      <span style={{ fontSize: 13, color: "#444" }}>/mes</span>
+                    </p>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: G, color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 16px", borderRadius: 10 }}>Empezar</a>
+                  </th>
+                  {/* ELITE */}
+                  <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(167,139,250,0.04)", fontWeight: "normal" as const }}>
+                    <p style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 600, color: "#a78bfa" }}>Elite</p>
+                    <p style={{ margin: "0 0 22px" }}>
+                      <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px", color: "#a78bfa" }}>$85.000</span>
+                      <span style={{ fontSize: 13, color: "#444" }}>/mes</span>
+                    </p>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "rgba(167,139,250,0.1)", color: "#a78bfa", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 16px", borderRadius: 10, border: "1px solid rgba(167,139,250,0.2)" }}>Contactar</a>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {tableFeatures.map((f, i) => (
+                  <tr key={f.name} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)", background: i % 2 !== 0 ? "rgba(255,255,255,0.008)" : "transparent" }}>
+                    <td style={{ padding: "12px 32px", fontSize: 13, color: "#6b6b6b" }}>{f.name}</td>
+                    <td style={{ textAlign: "center" as const, padding: "12px 24px", background: "rgba(255,255,255,0.008)" }}>
+                      <PlanCell val={f.base} color="#e4e4e7" />
+                    </td>
+                    <td style={{ textAlign: "center" as const, padding: "12px 24px", background: "rgba(0,204,106,0.03)", borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}` }}>
+                      <PlanCell val={f.pro} color={G} />
+                    </td>
+                    <td style={{ textAlign: "center" as const, padding: "12px 24px", background: "rgba(167,139,250,0.015)" }}>
+                      <PlanCell val={f.elite} color="#a78bfa" />
+                    </td>
+                  </tr>
                 ))}
-              </div>
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center" as const, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#aaa", fontWeight: 600, fontSize: 14, textDecoration: "none", padding: "13px 24px", borderRadius: 10 }}>
-                Empezar →
-              </a>
-            </div>
-
-            {/* Pro — destacado */}
-            <div className="sr" style={{ background: "rgba(0,204,106,0.05)", border: "1px solid rgba(0,204,106,0.2)", borderRadius: 22, padding: 32, position: "relative", transitionDelay: "0.08s" }}>
-              <div style={{ position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)", background: G, color: "#000", fontSize: 10, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase" as const, padding: "4px 14px", borderRadius: 20 }}>Más elegido</div>
-              <p style={{ fontSize: 12, fontWeight: 700, color: G, textTransform: "uppercase" as const, letterSpacing: "0.1em", marginBottom: 12 }}>Pro</p>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 6 }}>
-                <span style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-2px", color: G }}>$45.000</span>
-              </div>
-              <p style={{ fontSize: 13, color: "#555", marginBottom: 28 }}>por mes · por local</p>
-              <div style={{ borderTop: "1px solid rgba(0,204,106,0.1)", paddingTop: 24, display: "flex", flexDirection: "column" as const, gap: 12, marginBottom: 32 }}>
-                {["Todo el plan Base", "Inventario de productos", "Control de gastos del local", "Reportes avanzados", "Hasta 5 profesionales", "Soporte prioritario"].map(f => (
-                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span style={{ fontSize: 13, color: "#aaa" }}>{f}</span>
-                  </div>
-                ))}
-              </div>
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center" as const, background: G, color: "#000", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "13px 24px", borderRadius: 10 }}>
-                Empezar →
-              </a>
-            </div>
-
-            {/* Elite */}
-            <div className="sr diff-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 22, padding: 32, transitionDelay: "0.16s" }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#555", textTransform: "uppercase" as const, letterSpacing: "0.1em", marginBottom: 12 }}>Elite</p>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 6 }}>
-                <span style={{ fontSize: 38, fontWeight: 900, letterSpacing: "-2px" }}>$85.000</span>
-              </div>
-              <p style={{ fontSize: 13, color: "#555", marginBottom: 28 }}>por mes · por local</p>
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 24, display: "flex", flexDirection: "column" as const, gap: 12, marginBottom: 32 }}>
-                {["Todo el plan Pro", "Profesionales ilimitados", "Automatizaciones con n8n", "Web del negocio incluida", "Acceso anticipado a novedades", "Soporte directo con el equipo"].map(f => (
-                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span style={{ fontSize: 13, color: "#888" }}>{f}</span>
-                  </div>
-                ))}
-              </div>
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center" as const, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#aaa", fontWeight: 600, fontSize: 14, textDecoration: "none", padding: "13px 24px", borderRadius: 10 }}>
-                Contactar →
-              </a>
-            </div>
+                <tr>
+                  <td style={{ padding: "24px 32px" }} />
+                  <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(255,255,255,0.01)" }}>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "rgba(255,255,255,0.06)", color: "#888", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 24px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.08)" }}>Empezar</a>
+                  </td>
+                  <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(0,204,106,0.04)", borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}`, borderBottom: `2px solid ${G}` }}>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: G, color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 28px", borderRadius: 10 }}>Empezar</a>
+                  </td>
+                  <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(167,139,250,0.03)" }}>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "rgba(167,139,250,0.1)", color: "#a78bfa", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 24px", borderRadius: 10, border: "1px solid rgba(167,139,250,0.2)" }}>Contactar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <p className="sr" style={{ textAlign: "center" as const, fontSize: 13, color: "#333", marginTop: 24 }}>
-            Precios en pesos argentinos · IVA no incluido · Los mismos planes aplican a todos los sistemas Flowix
+            Precios en pesos argentinos · IVA no incluido · Cancelás cuando querés
           </p>
         </div>
       </section>
